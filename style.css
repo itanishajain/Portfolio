@@ -179,32 +179,45 @@ section {
     text-align: center;
 }
 
-.skills-content h2 {
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-container h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: #00FFFF; /* Neon blue */
+}
+
+.skill-set {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .skill {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
-.skill img {
-    width: 50px;
-    height: 50px;
+.skill-icon {
+    width: 40px;
+    height: 40px;
     margin-right: 1rem;
 }
 
-.skill-details {
-    flex: 1;
-}
-
-.skill-details span {
-    display: block;
+.skill span {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin-right: 1rem;
 }
 
 .skill-bar {
@@ -212,12 +225,20 @@ section {
     border-radius: 5px;
     overflow: hidden;
     height: 20px;
+    flex: 1;
+    position: relative;
+    margin-left: 1rem;
 }
 
 .skill-percentage {
     background: #00FFFF; /* Neon blue */
     height: 100%;
+    text-align: center;
+    line-height: 20px;
     border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .contact-section {
     background: #111; /* Slightly lighter black for contrast */
@@ -279,6 +300,11 @@ footer {
         font-size: 2rem;
     }
 
+    
+    .skills-container {
+        flex-direction: column;
+    }
+    
     .skills-content {
         text-align: center;
     }
@@ -286,6 +312,7 @@ footer {
     .skill {
         flex-direction: column;
         align-items: center;
+        flex-basis: 100%;
     }
 
     .skill img {
