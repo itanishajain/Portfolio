@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Rancho&family=Water+Brush&display=swap');
+
+
 /* Reset some default browser styles */
 * {
     margin: 0;
@@ -172,74 +175,189 @@ section {
     color: #fff; /* White on hover */
 }
 
-.skills-section {
-    background: #000; /* Black background */
-    color: #fff; /* White text */
-    padding: 4rem 2rem;
+.skills_container {
+    width: 100%;
+    height: 100vh;
+    padding-top: -90px;
+    padding: 0px 10%;
+    background-color: rgba(0, 0, 0, 0.082);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.skills_head {
+    width: 100%;
+    margin-bottom: 100px;
+    display: grid;
+    place-items: center;
     text-align: center;
 }
 
-.skills-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.skills_head h2 {
+    font-size: 30px;
+    margin-bottom: -5px;
 }
 
-.skills-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #00FFFF; /* Neon blue */
+.skills_head h2 span {
+    color: #00FFFF;
 }
 
-.skill-set {
-    display: flex;
-    justify-content: space-between;
+.skills_main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
 }
 
-.skills-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.skill {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
+.skill_bar {
     width: 100%;
 }
 
-.skill-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 1rem;
+.skill_bar .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Space between text and bar */
 }
 
-.skill span {
-    font-size: 1.2rem;
-    margin-right: 1rem;
+.skill_bar .info p {
+    margin: 0;
+    font-weight: 500;
 }
 
-.skill-bar {
-    background: #333;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 20px;
-    flex: 1;
+.skill_bar .bar {
+    width: 100%;
+    height: 10px;
+    background-color: #7f7c7c;
+    border-radius: 25px;
     position: relative;
-    margin-left: 1rem;
 }
 
-.skill-percentage {
-    background: #00FFFF; /* Neon blue */
+.skill_bar .bar span {
     height: 100%;
-    text-align: center;
-    line-height: 20px;
-    border-radius: 5px;
     position: absolute;
+    background-color: #00FFFF;
+    border-radius: 25px;
     top: 0;
     left: 0;
 }
+
+.skill_bar .bar .html {
+    width: 90%;
+    animation: html 2s;
+}
+
+@keyframes html {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 90%;
+    }
+}
+
+.skill_bar .bar .css {
+    width: 85%;
+    animation: css 2s;
+}
+
+@keyframes css {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+.skill_bar .bar .Bootstrap {
+    width: 75%;
+    animation: Bootstrap 2s;
+}
+
+@keyframes Bootstrap {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 75%;
+    }
+}
+
+.skill_bar .bar .js {
+    width: 70%;
+    animation: js 2s;
+}
+
+@keyframes js {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+.skill_bar .bar .c_plus {
+    width: 85%;
+    animation: c_plus 2s;
+}
+
+@keyframes c_plus {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+.skill_bar .bar .C {
+    width: 90%;
+    animation: C 2s;
+}
+
+@keyframes C {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 90%;
+    }
+}
+
+.skill_bar .bar .Python {
+    width: 70%;
+    animation: Python 2s;
+}
+
+@keyframes Python {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+.skill_bar .bar .SQL {
+    width: 60%;
+    animation: SQL 2s;
+}
+
+@keyframes SQL {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 60%;
+    }
+}
+
+
 .contact-section {
     background: #111; /* Slightly lighter black for contrast */
 }
@@ -300,22 +418,4 @@ footer {
         font-size: 2rem;
     }
 
-    
-    .skills-container {
-        flex-direction: column;
-    }
-    
-    .skills-content {
-        text-align: center;
-    }
-
-    .skill {
-        flex-direction: column;
-        align-items: center;
-        flex-basis: 100%;
-    }
-
-    .skill img {
-        margin-bottom: 1rem;
-    }
 }
