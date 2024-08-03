@@ -213,14 +213,22 @@ section {
 }
 
 .skill_bar {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space between each skill entry */
 }
 
 .skill_bar .info {
+    flex: 1; /* Allow the info section to grow and fill space */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px; /* Space between text and bar */
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+}
+
+.skill_bar img.skill-icon {
+    width: 40px; /* Adjust the width as needed */
+    height: auto;
+    margin-right: 15px; /* Space between the image and the text/bar */
 }
 
 .skill_bar .info p {
@@ -231,9 +239,10 @@ section {
 .skill_bar .bar {
     width: 100%;
     height: 10px;
-    background-color: #7f7c7c;
+    background-color: #fff; /* White background for the bar */
     border-radius: 25px;
     position: relative;
+    margin-top: 5px; /* Space between text and bar */
 }
 
 .skill_bar .bar span {
@@ -250,6 +259,41 @@ section {
     animation: html 2s;
 }
 
+.skill_bar .bar .css {
+    width: 85%;
+    animation: css 2s;
+}
+
+.skill_bar .bar .Bootstrap {
+    width: 75%;
+    animation: Bootstrap 2s;
+}
+
+.skill_bar .bar .js {
+    width: 70%;
+    animation: js 2s;
+}
+
+.skill_bar .bar .c_plus {
+    width: 85%;
+    animation: c_plus 2s;
+}
+
+.skill_bar .bar .C {
+    width: 90%;
+    animation: C 2s;
+}
+
+.skill_bar .bar .Python {
+    width: 70%;
+    animation: Python 2s;
+}
+
+.skill_bar .bar .SQL {
+    width: 60%;
+    animation: SQL 2s;
+}
+
 @keyframes html {
     0% {
         width: 0%;
@@ -257,11 +301,6 @@ section {
     100% {
         width: 90%;
     }
-}
-
-.skill_bar .bar .css {
-    width: 85%;
-    animation: css 2s;
 }
 
 @keyframes css {
@@ -273,11 +312,6 @@ section {
     }
 }
 
-.skill_bar .bar .Bootstrap {
-    width: 75%;
-    animation: Bootstrap 2s;
-}
-
 @keyframes Bootstrap {
     0% {
         width: 0%;
@@ -285,11 +319,6 @@ section {
     100% {
         width: 75%;
     }
-}
-
-.skill_bar .bar .js {
-    width: 70%;
-    animation: js 2s;
 }
 
 @keyframes js {
@@ -301,11 +330,6 @@ section {
     }
 }
 
-.skill_bar .bar .c_plus {
-    width: 85%;
-    animation: c_plus 2s;
-}
-
 @keyframes c_plus {
     0% {
         width: 0%;
@@ -313,11 +337,6 @@ section {
     100% {
         width: 85%;
     }
-}
-
-.skill_bar .bar .C {
-    width: 90%;
-    animation: C 2s;
 }
 
 @keyframes C {
@@ -329,11 +348,6 @@ section {
     }
 }
 
-.skill_bar .bar .Python {
-    width: 70%;
-    animation: Python 2s;
-}
-
 @keyframes Python {
     0% {
         width: 0%;
@@ -341,11 +355,6 @@ section {
     100% {
         width: 70%;
     }
-}
-
-.skill_bar .bar .SQL {
-    width: 60%;
-    animation: SQL 2s;
 }
 
 @keyframes SQL {
@@ -357,20 +366,137 @@ section {
     }
 }
 
+.percentage {
+    display: none;
+    position: absolute;
+    right: 0; /* Position percentage to the right of the bar */
+    top: -25px; /* Adjust to position the percentage above the bar */
+    color: #fff; /* Match the bar color */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Show percentage on bar hover */
+.bar:hover .percentage {
+    display: block;
+}
+
+/* CONTACT SECTION*/
 
 .contact-section {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    min-height: 100vh; /* Ensure it takes full viewport height */
     background: #111; /* Slightly lighter black for contrast */
+    padding: 20px;
 }
 
-.contact-content {
+.contact-container {
+    width: 100%;
+    max-width: 900px; /* Increased max-width for a wider layout */
+    text-align: center;
+    background: #000; /* Black background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    color: #00FFFF; /* Neon blue */
+    margin-bottom: 1rem;
+}
+
+.contact-container p {
+    font-size: 1.2rem;
     color: #fff; /* White text */
+    margin-bottom: 2rem;
 }
 
+.contact-form {
+    margin-bottom: 2rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem; /* Space between input fields in a row */
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1; /* Make input fields grow equally */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem; /* Increased padding for comfort */
+    border: 2px solid #00FFFF; /* Neon blue border */
+    border-radius: 5px;
+    background: #111; /* Slightly lighter black for input background */
+    color: #fff; /* White text for inputs */
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    display: inline-block;
+    background: #00FFFF; /* Neon blue background */
+    color: #000; /* Black text */
+    padding: 0.5rem 2rem;
+    font-size: 1.1rem; /* Slightly larger font */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.submit-btn:hover {
+    background: #00ccff; /* Lighter blue on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.contact-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Increased gap for clarity */
+    font-size: 1.8rem; /* Larger icons */
+    margin-top: 2rem; /* Added margin for separation */
+}
+
+.contact-social-links a {
+    color: #00FFFF; /* Neon blue */
+    transition: color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.contact-social-links a:hover {
+    color: #00ccff; /* Lighter blue on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
 footer {
     background: #000; /* Black background */
-    color: #00FFFF; /* Neon blue text */
-    text-align: center;
+    color: #fff; /* Neon blue text */
+    text-align: center; /* Center text horizontally */
     padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 1rem; /* Padding for responsiveness */
+}
+
+.footer-content p {
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Media Queries for Responsive Design */
@@ -418,4 +544,27 @@ footer {
         font-size: 2rem;
     }
 
+    .form-row {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        padding: 1.5rem;
+    }
+
+    .contact-container h2 {
+        font-size: 2rem;
+    }
+
+    .contact-container p {
+        font-size: 1rem;
+    }
+
+    .submit-btn {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .contact-social-links {
+        font-size: 1.5rem;
+    }
 }
