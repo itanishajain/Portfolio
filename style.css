@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Standard transition time for elements */
 }
 
 body {
@@ -38,26 +39,81 @@ header {
 .logo h1 {
     margin: 0;
     font-size: 1.5rem;
-    color: #00FFFF; /* Neon blue */
+    color: #00FFFF;
+    animation: fadeIn 3s ease-in-out forwards; /* Ensure animation runs to completion */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 1s ease-out; /* Slide-down effect on load */
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
-    margin-left: 2rem;
+    opacity: 0;
+    animation: fadeInUp 2s ease forwards;
+    animation-delay: calc(0.3s * var(--i)); /* Staggered animation */
 }
 
 nav ul li a {
-    color: #00FFFF; /* Neon blue */
+    color: #00FFFF;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
 }
 
 nav ul li a:hover {
     text-decoration: underline;
+    color: #00ccff;
+    transform: translateY(-5px);
+}
+
+/* Keyframes for animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 section {
@@ -77,13 +133,14 @@ section {
 .home-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Align content to the right */
+    justify-content: center; /* Align content to the center */
     width: 100%;
 }
 
 .text-content {
-    max-width: 80%; /* Adjusted to occupy less width */
-    padding-right: 5%; /* Add padding to push text content to the right */
+    max-width: 80%;
+    padding-right: 5%;
+    animation: slideInLeft 2.5s ease-out forwards; /* Ensure animation runs to completion */
 }
 
 .text-content h2 {
@@ -103,7 +160,19 @@ section {
 .image-content img {
     max-width: 80%;
     border-radius: 50%;
-    border: 2px solid #00FFFF; /* Neon blue border */
+    border: 2px solid #00FFFF;
+    animation: fadeIn 5s ease-in-out forwards; /* Ensure animation runs to completion */
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .about-section {
@@ -132,13 +201,26 @@ section {
 .about-image img {
     width: 100%;
     max-width: 65%;
-    border: 2px solid #00FFFF; /* Neon blue border */
+    border: 2px solid #00FFFF;
+    animation: slideInLeft 2.5s ease-out forwards; /* Ensure animation runs to completion */
 }
 
 .about-content {
     flex: 2;
     padding: 0.5rem;
     text-align: left;
+    animation: slideInRight 2.5s ease-out forwards; /* Ensure animation runs to completion */
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .about-content h2 {
@@ -239,7 +321,7 @@ section {
 .skill_bar .bar {
     width: 100%;
     height: 10px;
-    background-color: #fff; /* White background for the bar */
+    background-color: #575151; /* White background for the bar */
     border-radius: 25px;
     position: relative;
     margin-top: 5px; /* Space between text and bar */
@@ -252,6 +334,14 @@ section {
     border-radius: 25px;
     top: 0;
     left: 0;
+    width: 0;
+    animation: fillBar 3s forwards; /* Increased duration to 3s */
+}
+
+@keyframes fillBar {
+    to {
+        width: 100%;
+    }
 }
 
 .skill_bar .bar .html {
@@ -293,6 +383,7 @@ section {
     width: 60%;
     animation: SQL 2s;
 }
+
 
 @keyframes html {
     0% {
@@ -415,7 +506,17 @@ section {
 }
 
 .contact-form {
-    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: popIn 2s forwards; /* Increased duration to 2s */
+    animation-delay: 1s; /* Increased delay */
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-row {
