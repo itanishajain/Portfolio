@@ -10,9 +10,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #000; /* Black background */
-    color: #fff; /* White text */
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -46,10 +46,20 @@ header {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
+}
+
+.animate {
+    animation: fadeIn 1s ease forwards;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 nav {
@@ -88,9 +98,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
     color: #00ccff;
     transform: translateY(-5px);
+    text-decoration: underline; /* Add underline on hover for accessibility */
 }
 
 /* Keyframes for animations */
@@ -124,6 +134,17 @@ section {
     text-align: center;
     padding: 2rem;
     scroll-snap-align: start;
+}
+
+.section-animate {
+    opacity: 0; /* Start with hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-animate.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide in */
 }
 
 .home-section {
@@ -164,6 +185,19 @@ section {
     animation: fadeIn 5s ease-in-out forwards; /* Ensure animation runs to completion */
 }
 
+.slide-in-left {
+    animation: slideInLeft 1s forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+/* Example keyframes */
 @keyframes slideInLeft {
     from {
         transform: translateX(-100%);
@@ -171,6 +205,15 @@ section {
     }
     to {
         transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
         opacity: 1;
     }
 }
@@ -204,14 +247,6 @@ section {
     border: 2px solid #00FFFF;
     animation: slideInLeft 2.5s ease-out forwards; /* Ensure animation runs to completion */
 }
-
-.about-content {
-    flex: 2;
-    padding: 0.5rem;
-    text-align: left;
-    animation: slideInRight 2.5s ease-out forwards; /* Ensure animation runs to completion */
-}
-
 @keyframes slideInRight {
     from {
         transform: translateX(100%);
@@ -221,6 +256,12 @@ section {
         transform: translateX(0);
         opacity: 1;
     }
+}
+.about-content {
+    flex: 2;
+    padding: 0.5rem;
+    text-align: left;
+    animation: slideInRight 2.5s ease-out forwards; /* Ensure animation runs to completion */
 }
 
 .about-content h2 {
@@ -609,6 +650,7 @@ footer {
 
     nav ul {
         flex-direction: column;
+
         margin-top: 1rem;
     }
 
